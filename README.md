@@ -1,4 +1,4 @@
-Distributed P2P message communication network.
+Distributed P2P message communication network library.
 
 # Features
 
