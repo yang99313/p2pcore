@@ -33,7 +33,7 @@ https://github.com/metalwood/p2pcore/wiki/Home
 
 func leaderChangedCallback(string uuid) // leader变化了就会触发这个回调
 
-func p2pServerStartup(listenAddr string, listen port, otherServerAddrList []string, otherServerAddrList []int, leaderChangedCallback cb) (error)
+func p2pServerStartup(serverId string, servername string, listenAddr string, otherServerAddr string, leaderChangedCallback cb) (error)
 
 func p2pServerCleanup()
 
@@ -56,13 +56,15 @@ func p2pServerRecv()(srcId string, data []byte)
 
 专门用来放client的api接口
 
-func p2pClientStartup(listenAddr string, listen port, serverAddrList []string, serverPortList []int) (error)
+func p2pClientStartup(clientId string, clientName string, listenAddr string, serverAddr string) (error)
 
 func p2pClientCleanup()
 
 func p2pClientLookupMyId() (ClientId string) //查询自己的uuid
 
-func p2pClientLookupServers()(masterServerId string, connServerIdList []string, unConnServerIdList []string, error)
+func p2pClientLookupMaster()(serverId string)
+
+func p2pClientLookupServers()(connServerIdList []string, unConnServerIdList []string, error)
 
 func p2pClientLookupClients()(connClientIdList []string, unConnClientIdList []string, error) //查询我已经连上和没有连上的Client的Id, 未连上的其实就是无法内网穿透的客户端
 
