@@ -31,7 +31,7 @@ https://github.com/metalwood/p2pcore/wiki/Home
 
 专门用来放server的api接口, p2pcore应用到其他系统时，server端功能和client不同，server是不需要任何修改的，只是提供了这些编程接口用于查询而已。
 
-func leaderChangedCallback(string uuid) // leader变化了就会触发这个回调
+func leaderChangedCallback(serverId string) // leader变化了就会触发这个回调
 
 func p2pServerStartup(serverId string, servername string, listenAddr string, otherServerAddr string, leaderChangedCallback cb) (error)
 
