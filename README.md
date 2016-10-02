@@ -6,6 +6,10 @@ Distributed P2P message communication network library.
 
 * *Use [dog-tunnel](https://github.com/vzex/dog-tunnel) P2P tech to connect all clients for each other*
 
+# 工作流程
+
+https://github.com/metalwood/p2pcore/wiki/flow
+
 
 
 # server/api.go 专门用来放server的api接口
