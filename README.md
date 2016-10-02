@@ -31,33 +31,28 @@ https://github.com/metalwood/p2pcore/wiki/Home
 
 func leaderChangedCallback(string uuid) // leader变化了就会触发这个回调
 
+func p2pServerStartup(listenAddr string, listen port, otherServerAddrList []string, otherServerAddrList []int, leaderChangedCallback cb) (error)
 
-func pnServerStartup(listenAddr string, listen port, otherServerAddrList []string, otherServerAddrList []int, leaderChangedCallback cb) (error)
+func p2pServerCleanup()
 
-func pnServerCleanup()
+func p2pServerLookupClientInfo(clientId string) (wanIp []string, lanIp []string, listenIp string, listenPort int, error)
 
-func pnServerLookupInfo(uuid string) (role string, wanIp []string, lanIp []string, listenIp string, listen port int, error)
-
-func pnServerLookupClients()(uuidList []string, error)
+func p2pServerLookupClients()(clientIdList []string, error)
 
 
 
 # client/api.go 专门用来放client的api接口
 
-func pnClientStartup(listenAddr string, listen port, ServerAddrList []string, ServerPortList []int) (error)
+func p2pClientStartup(listenAddr string, listen port, serverAddrList []string, serverPortList []int) (error)
 
-func pnClientCleanup()
+func p2pClientCleanup()
 
-func pnClientLookupMasterId(uuid string, error)
+func p2pClientLookupServers()(connectedServerIdList []string, unconnectedServerIdList []string, error) //查询我已经连上和没有连上的Server的uuid
 
-func pnClientLookupServers()(connectedUuidList []string, unconnectedUuidList []string, error) //查询我已经连上和没有连上的Server的uuid
+func p2pClientLookupClients()(connectedClientIdList []string, unconnectedClientIdList []string, error) //查询我已经连上和没有连上的Client的uuid
 
-func pnClientLookupClients()(connectedUuidList []string, unconnectedUuidList []string, error) //查询我已经连上和没有连上的Client的uuid
+func p2pClientLookupMyId() (ClientId string) //查询自己的uuid
 
-func pnClientLookupMyId() (ClientId string) //查询自己的uuid
+func p2pClientSend(ClientId string, data []byte) (error) //发送数据给指定uuid的Client
 
-func pnClientSend(ClientId []string, data []byte) (error) //发送数据给指定uuid的Client
-
-func pnClientSendMaster(data []byte) (error)
-
-func pnClientRecv() (senderClientId string, senderRole string, data []byte, error)
+func p2pClientRecv() (senderClientId string, senderRole string, data []byte, error)
