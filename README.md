@@ -1,8 +1,8 @@
-分布式的P2P消息传输库，目的是简化通信、通过内网穿透技术减少server负担.
+分布式的P2P消息传输库，目的是简化多局域网分布式系统的内部通信， 包括：用Id通信方式封装屏蔽IP端口和C-S的通信方式、封装屏蔽内网穿透开发、封装屏蔽分布式集群中Leader的选举。
 
 #  架构简介
 
-此系统分为Server和Client两部分，Server端为数据转发节点，Client为工作节点，每个Client有个唯一的Id（随机生成的UUID）。
+此系统分为Server和Client两部分，Server端为数据转发节点，Client为工作节点，每个Server/Client有个唯一的Id（随机生成的UUID）。
 
 Server的数量大于等于1，可以自动组成一个集群，Server之间全部两两互联，使用dog-tunnel直连。
 
