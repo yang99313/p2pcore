@@ -8,7 +8,7 @@ Distributed P2P message communication network library.
 
 # 工作流程
 
-https://github.com/metalwood/p2pcore/wiki/flow
+https://github.com/metalwood/p2pcore/wiki/Home
 
 
 
