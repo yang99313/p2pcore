@@ -10,7 +10,7 @@ Client的数量不限制，先通过dog－tunnel尽量两两互联直接交互�
 
 # 代码组织
 
-尽量编写业务无关的可重用代码，放在https://github.com/metalwood/ezgo中，以包方式引用进来，最大程度减少p2pcore项目的代码量。
+尽量编写业务无关的可重用代码，放在https://github.com/metalwood/ezgo 中，以包方式引用进来，最大程度减少p2pcore项目的代码量。
 server/服务端的业务代码
 client/客户的的业务代码
 test/编写带main函数的测试程序，验证系统工作可靠
