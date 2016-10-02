@@ -19,7 +19,7 @@ test/编写带main函数的测试程序，验证系统工作可靠
 
 * *Use [raft](https://github.com/hashicorp/raft) distributed consensus protocol between Servers*
 
-* *Use [dog-tunnel](https://github.com/vzex/dog-tunnel) P2P tech to connect all clients for each other*
+* *Use [dog-tunnel](https://github.com/vzex/dog-tunnel) P2P tech to try to connect all clients for each other*
 
 # 工作流程
 
@@ -27,7 +27,9 @@ https://github.com/metalwood/p2pcore/wiki/Home
 
 
 
-# server/api.go 专门用来放server的api接口, p2pcore应用到其他系统时，server端功能和client不同，server是不需要任何修改的，只是提供了这些编程接口用于查询而已。
+# server/api.go
+
+专门用来放server的api接口, p2pcore应用到其他系统时，server端功能和client不同，server是不需要任何修改的，只是提供了这些编程接口用于查询而已。
 
 func leaderChangedCallback(string uuid) // leader变化了就会触发这个回调
 
@@ -39,9 +41,17 @@ func p2pServerLookupClientInfo(clientId string) (wanIp []string, lanIp []string,
 
 func p2pServerLookupClients()(clientIdList []string, error)
 
+func p2pServerRecv()(clientId string, data []byte)
+
+func p2pServerBroadcastClients(data []byte)(error)
+
+func p2pServerSendClient(clientId string, data []byte)(error)
 
 
-# client/api.go 专门用来放client的api接口
+
+# client/api.go
+
+专门用来放client的api接口
 
 func p2pClientStartup(listenAddr string, listen port, serverAddrList []string, serverPortList []int) (error)
 
@@ -53,6 +63,10 @@ func p2pClientLookupClients()(connectedClientIdList []string, unconnectedClientI
 
 func p2pClientLookupMyId() (ClientId string) //查询自己的uuid
 
-func p2pClientSend(ClientId string, data []byte) (error) //发送数据给指定uuid的Client
+func p2pClientSendClient(clientId string, data []byte) (error) //发送数据给指定uuid的Client，需要先查询是否直连，如果没有直连再查询哪些server支持此ClientId，然后从支持的server中随机选择。只有最终收到了，才能返回成功。
 
-func p2pClientRecv() (senderClientId string, senderRole string, data []byte, error)
+func p2pClientRecvClient() (senderClientId string, data []byte, error)
+
+func p2pClientSendServer(serverId string, data []byte) (error) //发送数据给指定uuid的Client或者Server，需要先查询是否直连，如果没有直连再查询哪些server支持此ClientId，然后从支持的server中随机选择。只有最终收到了，才能返回成功。
+
+func p2pClientRecvServer() (senderServerId string, data []byte, error)
