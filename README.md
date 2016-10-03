@@ -25,11 +25,7 @@ Peer的用途是提供Id－Id的通信模式，并可以和Server直接交换数
 
 识别自己的网络信息（公网地址列表、内网地址列表、监听地址、是否有局域网NAT防火墙）
 
-连接其他介绍人Server，索要Master的地址
-
-连接Master，索要全部Server的地址
-
-连接全部Server，加入集群，任意两个Server之间都尽量互联
+连接其他介绍人Server，索要全部Server的地址, 连接全部Server，形成集群，任意两个Server之间都尽量互联
 
 选举Master：按Raft算法投票，Master对p2pcore项目内部没有任何贡献和用途，是提供给p2pcore的用户的。
 
