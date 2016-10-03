@@ -11,9 +11,6 @@ Client的用途是提供Id－Id的通信模式，并可以和Server直接交换�
 # 代码组织
 
 尽量编写业务无关的可重用代码，放在https://github.com/metalwood/ezgo 中，以包方式引用进来，最大程度减少p2pcore项目的代码量。
-server/服务端的业务代码
-client/客户的的业务代码
-test/编写带main函数的测试程序，验证系统工作可靠
 
 # 接口设计
 
