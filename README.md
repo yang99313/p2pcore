@@ -56,7 +56,7 @@ Peer的用途是提供Id－Id的通信模式，并可以和Server直接交换数
 
 # 数据同步
 
-Server之间需要同步的数据是表A、表B
+Server之间需要同步的数据是表C
 
 Server和Peer之间需要同步数据的是表D、表E、表F
 
