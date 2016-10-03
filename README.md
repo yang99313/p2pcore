@@ -2,7 +2,7 @@
 
 #  架构简介
 
-此系统分为Server和Peer两部分，Server端为数据转发节点，Peer为工作节点，每个Server/Peer有个唯一的Id（随机生成的UUID）。
+此系统分为Server和Peer两部分，Server端为数据转发节点，Peer为工作节点，每个Server/Peer必须指定一个唯一Id。
 
 Server的用途是给Peer提供内网穿透协助，无法穿透则提供数据转发。Server集群中每个Server都提供相同的服务，相互直接基本没有数据同步，除了Server列表。集群数量>=1，之间全部两两互联，使用dog-tunnel直连。
 
