@@ -12,6 +12,8 @@ func p2pPeerLookupMaster() (serverId string, err error)
 
 func p2pPeerLookupServers() (connServerIdList []string, unConnServerIdList []string, err error)
 
+func p2pPeerLookupServerInfo(serverId string) (role string, wanIp []string, lanIp []string, listenIp string, listenPort int, nat bool, err error)
+
 func p2pPeerLookupPeers() (connPeerIdList []string, unConnPeerIdList []string, err error) //查询我已经连上和没有连上的Peer的Id, 未连上的其实就是无法内网穿透的客户端
 
 func p2pPeerLookupPeerInfo(peerId string) (wanIp []string, lanIp []string, listenIp string, listenPort int, err error)
