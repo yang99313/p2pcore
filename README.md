@@ -56,7 +56,7 @@ Server之间需要同步的数据是表C
 
 Server和Peer之间需要同步数据的是表D、表E、表F
 
-Peer之间没有需要同步对数据
+Peer之间没有需要同步的数据
 
 
 # Server集群节点数变化时的处理
