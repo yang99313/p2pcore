@@ -11,7 +11,7 @@ func p2pServerLookupMyId() (serverId string)
 
 func p2pServerLookupMaster() (serverId string, err error)
 
-func p2pServerLookupServers() (masterServerId string, serverIdList []string, err error)
+func p2pServerLookupServers() (masterServerId string, connServerIdList []string, unConnServerIdList []string, err error)
 
 func p2pServerLookupServerInfo(serverId string) (role string, wanIp []string, lanIp []string, listenIp string, listenPort int, nat bool, err error)
 
