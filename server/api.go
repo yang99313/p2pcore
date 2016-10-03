@@ -2,7 +2,8 @@ package p2pcore
 
 func masterChangedCallback(masterServerId string)
 
-func p2pServerStartup(serverId string, serverName string, listenAddr string, otherServerAddr string, masterChangedCallback cb) (err error)
+// sponsorServerAddr是介绍人的地址，介绍此进程加入Server集群
+func p2pServerStartup(serverId string, serverName string, listenAddr string, sponsorServerAddr string, masterChangedCallback cb) (err error)
 
 func p2pServerCleanup()
 

@@ -85,7 +85,7 @@ Id是角色代号＋随机数表示的编号，必须唯一，否则会带来错
 
 Master 系统唯一的节点，由所有Server节点们根据Raft算法自动选举出的，选举Master是为p2pcore的用户提供的，对p2pcore本身没有比普通Server多做任何工作，是个闲差。
 
-Server 数据中继，一般是HighId（如果需要的话）、流量便宜的节点，此系统中Server越多，系统越可靠。
+Server 数据中继，一般是所有Peer可以连上且流量便宜的节点，此系统中Server越多，系统越可靠。
 
 Peer 普通节点，和其他Peer连接时，同时启用了Peer和Server模式的通信。
 
