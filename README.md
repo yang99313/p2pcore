@@ -1,4 +1,4 @@
-分布式的P2P消息传输库，目的是简化多局域网分布式系统的内部通信。包括：用Id－Id的点到点通信模式简化取代IP端口的CS通信模式、内部尽量使用[dog-tunnel](https://github.com/vzex/dog-tunnel)内网穿透其次使用Server转发、Server集群使用[raft](https://github.com/coreos/etcd/tree/master/raft)算法确保始终有一个Master。
+分布式的P2P消息传输库，目的是简化多局域网分布式系统的内部通信。包括：用Id－Id的点到点通信模式简化取代IP端口的CS通信模式、内部优先使用[dog-tunnel](https://github.com/vzex/dog-tunnel)内网穿透其次才使用Server转发、Server集群使用[raft](https://github.com/coreos/etcd/tree/master/raft)算法确保始终有一个Master。
 
 #  架构简介
 
