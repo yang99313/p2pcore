@@ -1,12 +1,12 @@
-分布式的P2P消息传输库，目的是简化多局域网分布式系统的内部通信。包括：用Id－Id的点到点通信模式简化取代IP端口的CS通信模式、内部尽量使用[dog-tunnel](https://github.com/vzex/dog-tunnel)内网穿透其次使用Server转发、Server集群使用[raft](https://github.com/hashicorp/raft)算法确保始终有一个Master。
+分布式的P2P消息传输库，目的是简化多局域网分布式系统的内部通信。包括：用Id－Id的点到点通信模式简化取代IP端口的CS通信模式、内部尽量使用[dog-tunnel](https://github.com/vzex/dog-tunnel)内网穿透其次使用Server转发、Server集群使用[raft](https://github.com/coreos/etcd/tree/master/raft)算法确保始终有一个Master。
 
 #  架构简介
 
 此系统分为Server和Client两部分，Server端为数据转发节点，Client为工作节点，每个Server/Client有个唯一的Id（随机生成的UUID）。
 
-Server的数量大于等于1，可以自动组成一个集群，Server之间全部两两互联，使用dog-tunnel直连。
+Server的用途是给Client提供内网穿透协助，无法穿透则提供数据转发。Server集群中每个Server都提供相同的服务，相互直接基本没有数据同步，除了Server列表。集群数量>=1，之间全部两两互联，使用dog-tunnel直连。
 
-Client的数量不限制，先通过dog－tunnel尽量两两互联直接交互数据，如果无法连接则通过Server转发数据。
+Client的用途是提供Id－Id的通信模式，并可以和Server直接交换数据，然后以接口方式提供上述功能。客户端数量不限制，先两两直连，如果无法直连则通过Server协助使用dog－tunnel内网穿透，如果无法穿透则通过Server转发。
 
 # 代码组织
 
